@@ -1,0 +1,69 @@
+@import "tailwindcss";
+@import "@fontsource/manrope/400.css";
+@import "@fontsource/manrope/500.css";
+@import "@fontsource/manrope/600.css";
+@import "@fontsource/manrope/700.css";
+@import "@fontsource/ibm-plex-mono/400.css";
+@import "@fontsource/ibm-plex-mono/500.css";
+
+@theme {
+  --font-sans: "Manrope", "Liberation Sans", sans-serif;
+  --font-mono: "IBM Plex Mono", "Liberation Mono", ui-monospace, monospace;
+  --color-bg: #f3efe6;
+  --color-surface: #fffdf8;
+  --color-ink: #1c1914;
+  --color-muted: #6f675c;
+  --color-line: #e4d9c8;
+  --color-soft: #efe8db;
+  --color-primary: #0e6b52;
+  --color-primary-fg: #f3fbf7;
+  --color-danger: #9d341f;
+  --color-danger-soft: #f8e8e3;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+  }
+  body {
+    background: var(--color-bg);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    line-height: 1.5;
+  }
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+  ::selection {
+    background: color-mix(in srgb, var(--color-primary) 28%, white);
+  }
+  progress {
+    height: 0.5rem;
+    width: 100%;
+    overflow: hidden;
+    border: 0;
+    border-radius: 999px;
+    background: var(--color-soft);
+    color: var(--color-primary);
+  }
+  progress::-webkit-progress-bar {
+    background: var(--color-soft);
+  }
+  progress::-webkit-progress-value {
+    background: var(--color-primary);
+  }
+  progress::-moz-progress-bar {
+    background: var(--color-primary);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
